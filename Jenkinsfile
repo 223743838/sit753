@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'npm install --save-dev eslint'
+                sh 'npm install --save-dev webpack webpack-cli'
                 sh 'npm run build'
             }
         }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "eslint .",
+    "build": "webpack",
     "test": "mocha",
     "start": "node server.js"
   },
