@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "eslint .",
+    "test": "mocha",
     "start": "node server.js"
   },
   "author": "",
@@ -21,5 +22,8 @@
     "mongoose": "^8.4.0",
     "morgan": "^1.10.0"
   },
-  "keywords": []
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "mocha": "^9.0.0"
+  }
 }
