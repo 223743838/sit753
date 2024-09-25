@@ -31,7 +31,7 @@ pipeline {
                 sh 'npm run start & echo $! > app.pid &'
                 // Check logs from Morgan or any custom logging implemented
                 echo 'Monitoring logs...'
-                sh 'tail -f /path/to/your/logfile.log'
+                sh 'tail -f /var/logfile.log'
 
                 // Archive logs in Jenkins
                 archiveArtifacts artifacts: 'logs/**/*.log', allowEmptyArchive: true
