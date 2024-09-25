@@ -26,7 +26,7 @@ pipeline {
                 sh 'npm run test'
             }
         }
-        stage('Start Application') {
+        stage('Deploying the application') {
             steps {
                 sh 'npm run start & echo $! > app.pid &'
                 
