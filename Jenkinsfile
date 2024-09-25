@@ -23,6 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm install --save-dev mocha'
+                sh 'npm install supertest --save-dev'
                 sh 'npm run test'
             }
         }
