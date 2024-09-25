@@ -20,8 +20,14 @@ pipeline {
         }
         stage('Start Application') {
             steps {
-                sh 'npm run start'
+                sh 'npm run start & echo $! > app.pid'
+
             }
+        }
+        stage('Stop Application') {
+            steps {
+                 sh 'kill $(cat app.pid)'
+             }
         }
     }
 }
