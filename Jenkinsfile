@@ -30,8 +30,20 @@ pipeline {
         }
         stage('Monitoring') {
             steps {
-                // configure monitoring tools (e.g., Prometheus, Grafana, etc.)
-                // send notifications to the development team in case of any issues or errors
+               success {
+            echo 'Successfully Completed Unit and Integration Tests!'
+            emailext attachLog: true,
+                to: "s223743838@deakin.edu.au",
+                subject: "Unit and Integration Tests Success: ${currentBuild.fullDisplayName}",
+                body: "The Unit and Integration Tests ${currentBuild.fullDisplayName} was successful."
+        }
+        failure {
+            echo 'Faliure on execution of Unit and Integration Tests!'
+            emailext attachLog: true,
+                to: "s223743838@deakin.edu.au",
+                subject: "Unit and Integration Tests Failure: ${currentBuild.fullDisplayName}",
+                body: "The Unit and Integration Tests ${currentBuild.fullDisplayName} failed. Please review the attached logs."
+        }
             }
         }
     }
