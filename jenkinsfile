@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Source Code Management') {
             steps {
-                git 'https://github.com/your-username/your-repo-name.git'
+                git 'https://github.com/223743838/sit753.git'
             }
         }
         stage('Build') {
