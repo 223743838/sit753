@@ -28,8 +28,13 @@ pipeline {
         }
         stage('Start Application') {
             steps {
-                sh 'npm run start & echo $! > app.pid'
+                sh 'npm run start & echo $! > app.pid &'
+                // Check logs from Morgan or any custom logging implemented
+                echo 'Monitoring logs...'
+                sh 'tail -f /path/to/your/logfile.log'
 
+                // Archive logs in Jenkins
+                archiveArtifacts artifacts: 'logs/**/*.log', allowEmptyArchive: true
             }
         }
         stage('Stop Application') {
