@@ -1,6 +1,14 @@
 pipeline {
     agent any
     stages {
+
+        stage('Source Code Management') {
+            steps {
+                // Checking out the source code from GitHub
+                git branch: 'main', url: 'https://github.com/223743838/sit753.git'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
